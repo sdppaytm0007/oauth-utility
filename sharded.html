@@ -20,21 +20,45 @@
     </div>
 
     <div class="option-list">
-        <div class="option" style="background-color: #00baf2;color: white;">Device V2 Cache Payload Converter</div>
-    </div>
+      <div class="option" onclick="location.href='converter.html'">Device V2 Cache Payload Converter</div>
+  </div>
 
   <div class="option-list">
-    <div class="option" onclick="location.href='sharded.html'">Sharded tables Script Generator</div>
+    <div class="option" style="background-color: #00baf2;color: white;">Sharded tables Script Generator</div>
 </div>
 
 
     <div class="converter-container">
       <div class="input-container">
-        <textarea name="input-box" spellcheck="false" id="e1">hello</textarea>
+        <textarea name="input-box" spellcheck="false" id="e1" 
+        placeholder=
+"NOTE:- here <shard> and <table> is like 00, 01, 02 ....
+
+
+
+*** EXAMPLE 1 ***
+use deb<shard>;
+
+ALTER TABLE deb<shard>.table_name_<shard>_<table> ADD column_name datatype;
+
+
+
+
+*** EXAMPLE 2 ***
+use deb<shard>;
+
+drop table deb<shard>.table_name_<shard>_<table>;
+
+CREATE TABLE deb<shard>.table_name_<shard>_<table> {
+.....
+};
+
+"
+        ></textarea>
       </div>
       <div id="convert-btn-container">
-        <div class="option" class="convert-btn" id="payload-convert-btn">
-          Convert
+        <div class="option" class="convert-btn" id="sharded-script-btn">
+          Generate Script
         </div>
       </div>
       <div class="output-container">

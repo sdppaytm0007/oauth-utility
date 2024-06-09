@@ -107,4 +107,28 @@ function getDateFormat(dateArr){
     return `${dateArr[0]}-${dateArr[1]}-${dateArr[2]} ${dateArr[3]}:${dateArr[4]}:${dateArr[5]}.${dateArr[6]}`
 }
 
-document.getElementById('convert-btn').addEventListener('click',onConvert);
+function onGenerateScript(){
+    let input = document.getElementById("e1").value;
+    let output = "";
+    for(let shard=0;shard<=9;shard++){
+        for(let table=0;table<=9;table++){
+            let tableQuery = getForTable(shard, table, input);
+            output += tableQuery;
+            output += "\n\n";
+        }
+    }
+    document.getElementById("e2").value = output;
+}
+
+function getForTable(shard, table, input){
+    let res = input.replaceAll("<shard>",'0'+shard).replaceAll("<table>",'0'+table);
+    return res;
+}
+
+if(document.getElementById('payload-convert-btn')){
+    document.getElementById('payload-convert-btn').addEventListener('click',onConvert);
+}
+
+if(document.getElementById('sharded-script-btn')){
+    document.getElementById('sharded-script-btn').addEventListener('click',onGenerateScript);
+}
