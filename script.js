@@ -99,10 +99,13 @@ function getSubInfo(payload){
 
 function getDateFormat(dateArr){
     if(!dateArr) return '';
-    for(let i=0;i<=5;i++){
+    for(let i=0;i<dateArr.length;i++){
         if(dateArr[i]>=0 && dateArr[i]<=9){
             dateArr[i] = `0${dateArr[i]}`;
         }
+    }
+    if(dateArr.length == 5){
+        return `${dateArr[0]}-${dateArr[1]}-${dateArr[2]} ${dateArr[3]}:${dateArr[4]}:${dateArr[5]}`;
     }
     return `${dateArr[0]}-${dateArr[1]}-${dateArr[2]} ${dateArr[3]}:${dateArr[4]}:${dateArr[5]}.${dateArr[6]}`
 }
