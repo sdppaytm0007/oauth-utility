@@ -104,7 +104,7 @@ function getDateFormat(dateArr){
             dateArr[i] = `0${dateArr[i]}`;
         }
     }
-    if(dateArr.length == 5){
+    if(dateArr.length == 6){
         return `${dateArr[0]}-${dateArr[1]}-${dateArr[2]} ${dateArr[3]}:${dateArr[4]}:${dateArr[5]}`;
     }
     return `${dateArr[0]}-${dateArr[1]}-${dateArr[2]} ${dateArr[3]}:${dateArr[4]}:${dateArr[5]}.${dateArr[6]}`
